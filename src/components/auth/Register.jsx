@@ -1,7 +1,11 @@
-import { BiArrowBack } from "react-icons/bi";
+import { useContext } from "react";
+import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../provider/AuthProvider";
 
 const Register = () => {
+  const { userRegister } = useContext(AuthContext);
+
   const handleRegister = (e) => {
     e.preventDefault();
     const form = new FormData(e.currentTarget);
@@ -11,16 +15,21 @@ const Register = () => {
     const photo = form.get("photo");
     e.currentTarget.reset();
     console.log(name, email, password, photo);
+
+    userRegister(email, password)
+      .then((result) => {
+        console.log(result.user);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (
     <div className="px-5 md:px-10 lg:px-20 py-10">
-      <Link to="/">
-        <button className="flex items-center gap-2 text-xl text-[#374151] hover:text-[#D2B48C] font-rancho">
-          <BiArrowBack />
-          <span>Back to home</span>
-        </button>
-      </Link>
+      <Helmet>
+        <title>PhoneHub | Register</title>
+      </Helmet>
       <div className="flex flex-col items-center mt-5 ">
         <div className="w-full max-w-sm bg-[#F4F3F0] rounded p-5">
           <h1 className="text-3xl text-[#374151] text-center font-rancho">
