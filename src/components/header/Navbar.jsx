@@ -18,21 +18,11 @@ const Navbar = () => {
           Home
         </NavLink>
       </li>
-      <li>
-        <NavLink
-          to="/register"
-          className={({ isActive }) =>
-            isActive ? "text-[#2658a3] underline active" : ""
-          }
-        >
-          Register
-        </NavLink>
-      </li>
     </>
   );
 
   return (
-    <div className="flex justify-between items-center px-5 md:px-10 lg:px-20 py-5">
+    <div className="flex justify-between items-center px-5 md:px-10 lg:px-20 py-5 bg-red-300">
       <div className="flex items-center">
         <Link to="/">
           <img src={logo} alt="logo" className="w-12 h-12" />
@@ -68,7 +58,7 @@ const Navbar = () => {
           <div className="mt-3">
             <Link
               to="/login"
-              className="px-4 py-2 bg-[#2658a3] hover:bg-transparent hover:border hover: border-[#2658a3] hover:text-black transition-all duration-300 rounded w-full uppercase text-white font-medium"
+              className="px-4 py-2 bg-[#2658a3] hover:bg-transparent hover:border hover: border-[#2658a3] hover:text-black transition-all duration-500 rounded w-full uppercase text-white font-medium"
             >
               Login
             </Link>

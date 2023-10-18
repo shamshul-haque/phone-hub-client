@@ -25,7 +25,7 @@ const Footer = () => {
               <span className="text-[#8d8e8f]">Hub</span>
             </i>
           </div>
-          <p className="mt-1 font-raleway">
+          <p className="mt-1 ">
             Your One-Stop Destination for Cutting-Edge Phones. Discover the
             future of mobile technology with our curated selection!
           </p>
@@ -43,8 +43,8 @@ const Footer = () => {
               <BsLinkedin />
             </Link>
           </div>
-          <h2 className="text-3xl text-white font-rancho mt-5">Get in Touch</h2>
-          <div className="mt-2 space-y-1 font-raleway">
+          <h2 className="text-3xl text-white  mt-5">Get in Touch</h2>
+          <div className="mt-2 space-y-1 ">
             <p className="flex items-center gap-2 text-white">
               <BsFillTelephoneFill />
               <a href="tel:+880 1406680846">+880 1406680846</a>
@@ -72,8 +72,8 @@ const Footer = () => {
           </div>
         </div>
         <div className="flex-1">
-          <h2 className="text-3xl text-white font-rancho">Connect with Us</h2>
-          <form className="space-y-4 mt-5 font-raleway">
+          <h2 className="text-3xl text-white ">Connect with Us</h2>
+          <form className="space-y-4 mt-5 ">
             <input
               type="text"
               name="name"
@@ -103,7 +103,7 @@ const Footer = () => {
       </div>
       <hr className="border-[#2658a3]" />
       <div>
-        <p className="text-sm text-center font-rancho py-5">
+        <p className="text-sm text-center  py-5">
           Copyright Phone Hub ! All Rights Reserved
         </p>
       </div>
