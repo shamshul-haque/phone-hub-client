@@ -1,10 +1,22 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 import { Link, NavLink } from "react-router-dom";
 import logo from "../../assets/logo/logo.png";
+import { AuthContext } from "../../provider/AuthProvider";
 
 const Navbar = () => {
+  const { user, logoutUser } = useContext(AuthContext);
   const [toggleMenu, setToggleMenu] = useState(false);
+
+  const handleLogout = () => {
+    logoutUser()
+      .then((result) => {
+        console.log(result.user);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   const links = (
     <>
@@ -36,12 +48,22 @@ const Navbar = () => {
         <ul className="flex items-center gap-5">
           {links}
           <div>
-            <Link
-              to="/login"
-              className="px-4 py-2 bg-[#2658a3] hover:bg-transparent hover:border hover: border-[#2658a3] hover:text-black transition-all duration-300 rounded uppercase text-white font-medium"
-            >
-              Login
-            </Link>
+            {user ? (
+              <Link
+                to="/login"
+                onClick={handleLogout}
+                className="px-4 py-2 bg-[#2658a3] hover:bg-transparent hover:border hover: border-[#2658a3] hover:text-black transition-all duration-300 rounded uppercase text-white font-medium"
+              >
+                Log Out
+              </Link>
+            ) : (
+              <Link
+                to="/login"
+                className="px-4 py-2 bg-[#2658a3] hover:bg-transparent hover:border hover: border-[#2658a3] hover:text-black transition-all duration-300 rounded uppercase text-white font-medium"
+              >
+                Login
+              </Link>
+            )}
           </div>
         </ul>
       </div>
