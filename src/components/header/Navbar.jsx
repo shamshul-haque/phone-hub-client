@@ -40,11 +40,31 @@ const Navbar = () => {
           Add Brand
         </NavLink>
       </li>
+      <li>
+        <NavLink
+          to="/addProduct"
+          className={({ isActive }) =>
+            isActive ? "text-[#2658a3] underline active" : ""
+          }
+        >
+          Add Product
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          to="/myCart"
+          className={({ isActive }) =>
+            isActive ? "text-[#2658a3] underline active" : ""
+          }
+        >
+          My Cart
+        </NavLink>
+      </li>
     </>
   );
 
   return (
-    <div className="flex justify-between items-center px-5 md:px-10 lg:px-20 py-5 bg-red-300">
+    <div className="flex justify-between items-center px-5 md:px-10 lg:px-20 py-5 bg-White shadow-xl">
       <div className="flex items-center">
         <Link to="/">
           <img src={logo} alt="logo" className="w-12 h-12" />
