@@ -20,22 +20,12 @@ const Navbar = () => {
       </li>
       <li>
         <NavLink
-          to="/"
+          to="/register"
           className={({ isActive }) =>
             isActive ? "text-[#2658a3] underline active" : ""
           }
         >
-          Home
-        </NavLink>
-      </li>
-      <li>
-        <NavLink
-          to="/"
-          className={({ isActive }) =>
-            isActive ? "text-[#2658a3] underline active" : ""
-          }
-        >
-          Home
+          Register
         </NavLink>
       </li>
     </>
