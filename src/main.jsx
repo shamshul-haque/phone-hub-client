@@ -4,6 +4,6 @@ import "./index.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <h1>Default Clear</h1>
+    <h1 className="text-red-600 font-barlow">Default Clear</h1>
   </React.StrictMode>
 );
