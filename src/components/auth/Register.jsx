@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
+import SocialLogin from "./SocialLogin";
 
 const Register = () => {
   const { userRegister } = useContext(AuthContext);
@@ -94,6 +95,7 @@ const Register = () => {
               Login
             </Link>
           </p>
+          <SocialLogin />
         </div>
       </div>
     </div>
