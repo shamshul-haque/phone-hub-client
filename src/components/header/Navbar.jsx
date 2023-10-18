@@ -47,10 +47,10 @@ const Navbar = () => {
         <Link to="/">
           <img src={logo} alt="logo" className="w-12 h-12" />
         </Link>
-        <p className="text-3xl font-bold pl-2">
-          <span className="text-[#2658a3]">Tech</span>
+        <i className="text-3xl font-bold">
+          <span className="text-[#2658a3]">Phone</span>
           <span className="text-[#8d8e8f]">Hub</span>
-        </p>
+        </i>
       </div>
       <div className="hidden lg:flex">
         <ul className="flex items-center gap-5">
