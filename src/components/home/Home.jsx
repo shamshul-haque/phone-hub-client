@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet";
+import Brand from "../brand/Brand";
 
 const Home = () => {
   return (
@@ -6,7 +7,7 @@ const Home = () => {
       <Helmet>
         <title>PhoneHub | Home</title>
       </Helmet>
-      <p>Home</p>
+      <Brand />
     </div>
   );
 };
