@@ -78,7 +78,7 @@ const Navbar = () => {
           <div className="mt-3">
             <Link
               to="/login"
-              className="px-4 py-2 bg-[#2658a3] hover:bg-transparent hover:border hover: border-red-500 hover:text-black transition-all duration-300 rounded w-full uppercase text-white font-medium"
+              className="px-4 py-2 bg-[#2658a3] hover:bg-transparent hover:border hover: border-[#2658a3] hover:text-black transition-all duration-300 rounded w-full uppercase text-white font-medium"
             >
               Login
             </Link>
