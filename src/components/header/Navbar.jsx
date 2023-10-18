@@ -30,6 +30,16 @@ const Navbar = () => {
           Home
         </NavLink>
       </li>
+      <li>
+        <NavLink
+          to="/addBrand"
+          className={({ isActive }) =>
+            isActive ? "text-[#2658a3] underline active" : ""
+          }
+        >
+          Add Brand
+        </NavLink>
+      </li>
     </>
   );
 
