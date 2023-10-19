@@ -79,7 +79,7 @@ const AddProduct = () => {
                 className="p-2 rounded outline-0 text-sm"
               >
                 <option value="select">Select Brand Name</option>
-                <option value="iphone">iphone</option>
+                <option value="apple">apple</option>
                 <option value="huawei">huawei</option>
                 <option value="realme">realme</option>
                 <option value="oppo">oppo</option>

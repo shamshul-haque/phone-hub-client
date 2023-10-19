@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 
 const Brand = () => {
   const loadedBrands = useLoaderData();
@@ -8,7 +8,8 @@ const Brand = () => {
       <h1 className="text-3xl font-bold">Brand Categories</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-5">
         {loadedBrands.map((brand) => (
-          <div
+          <Link
+            to={`/product/${brand.brand_name}`}
             key={brand._id}
             className="p-5 bg-white shadow-xl rounded space-y-4"
           >
@@ -21,10 +22,7 @@ const Brand = () => {
               <span className="font-bold">Brand: </span>
               <span className="uppercase">{brand.brand_name}</span>
             </h2>
-            <button className="text-xl p-2 rounded border w-full text-center text-white hover:text-black bg-[#2658a3] hover:bg-transparent cursor-pointer hover:border-[#8d8e8f] font-medium uppercase transition-all duration-500">
-              Explore
-            </button>
-          </div>
+          </Link>
         ))}
       </div>
     </div>

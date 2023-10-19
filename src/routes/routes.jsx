@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import Login from "../components/auth/Login";
 import Register from "../components/auth/Register";
 import AddBrand from "../components/brand/AddBrand";
+import Product from "../components/brand/Product";
 import MyCart from "../components/cart/MyCart";
 import Home from "../components/home/Home";
 import AddProduct from "../components/product/AddProduct";
@@ -35,6 +36,12 @@ const router = createBrowserRouter([
             <AddBrand />
           </PrivateRoutes>
         ),
+      },
+      {
+        path: "/product/:brand_name",
+        element: <Product />,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/product/${params.brand_name}`),
       },
       {
         path: "/addProduct",
