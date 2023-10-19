@@ -1,8 +1,9 @@
 import { createBrowserRouter } from "react-router-dom";
-import AddBrand from "../components/addBrand/AddBrand";
 import Login from "../components/auth/Login";
 import Register from "../components/auth/Register";
+import AddBrand from "../components/brand/AddBrand";
 import Home from "../components/home/Home";
+import AddProduct from "../components/product/AddProduct";
 import ErrorPage from "../errorPage/ErrorPage";
 import Root from "../layout/Root";
 
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
       {
         path: "/addBrand",
         element: <AddBrand />,
+      },
+      {
+        path: "/addProduct",
+        element: <AddProduct />,
       },
     ],
   },

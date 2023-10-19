@@ -103,7 +103,7 @@ const Navbar = () => {
         </div>
         <ul
           className={`absolute right-6 md:right-11 bg-[#8d8e8f] bg-opacity-60 rounded-lg p-5 ${
-            toggleMenu ? `top-14` : `-top-40`
+            toggleMenu ? `top-14` : `-top-60`
           } duration-1000`}
         >
           {links}

@@ -45,13 +45,18 @@ const AddBrand = () => {
           </h1>
           <form onSubmit={handleAddBrand} className="mt-5 space-y-5 ">
             <div className="form-control">
-              <input
-                type="text"
+              <select
                 name="brand_name"
-                placeholder="Brand Name"
                 className="p-2 rounded outline-0 text-sm"
-                required
-              />
+              >
+                <option value="select">Select Brand Name</option>
+                <option value="iphone">iphone</option>
+                <option value="huawei">huawei</option>
+                <option value="realme">realme</option>
+                <option value="oppo">oppo</option>
+                <option value="vivo">vivo</option>
+                <option value="xiaomi">xiaomi</option>
+              </select>
             </div>
             <div className="form-control">
               <input
@@ -59,7 +64,6 @@ const AddBrand = () => {
                 name="brand_img"
                 placeholder="Image URL"
                 className="p-2 rounded outline-0 text-sm"
-                required
               />
             </div>
             <input
