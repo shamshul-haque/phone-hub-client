@@ -2,10 +2,11 @@ import { createBrowserRouter } from "react-router-dom";
 import Login from "../components/auth/Login";
 import Register from "../components/auth/Register";
 import AddBrand from "../components/brand/AddBrand";
-import Product from "../components/brand/Product";
 import MyCart from "../components/cart/MyCart";
 import Home from "../components/home/Home";
 import AddProduct from "../components/product/AddProduct";
+import Product from "../components/product/Product";
+import UpdateProduct from "../components/product/UpdateProduct";
 import ErrorPage from "../errorPage/ErrorPage";
 import Root from "../layout/Root";
 import PrivateRoutes from "./PrivateRoutes";
@@ -38,18 +39,28 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/product/:brand_name",
-        element: <Product />,
-        loader: ({ params }) =>
-          fetch(`http://localhost:5000/product/${params.brand_name}`),
-      },
-      {
         path: "/addProduct",
         element: (
           <PrivateRoutes>
             <AddProduct />
           </PrivateRoutes>
         ),
+      },
+      {
+        path: "/product/:brand_name",
+        element: <Product />,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/product/${params.brand_name}`),
+      },
+      {
+        path: "/updateProduct/:id",
+        element: (
+          <PrivateRoutes>
+            <UpdateProduct />
+          </PrivateRoutes>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/products/${params.id}`),
       },
       {
         path: "/myCart",

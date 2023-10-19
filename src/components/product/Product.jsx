@@ -1,4 +1,5 @@
-import { useLoaderData } from "react-router-dom";
+import { Helmet } from "react-helmet";
+import { Link, useLoaderData } from "react-router-dom";
 import empty from "../../assets/images/empty.png";
 
 const Product = () => {
@@ -6,6 +7,9 @@ const Product = () => {
   console.log(loadedProduct);
   return (
     <div className="px-5 md:px-10 lg:px-20 py-10">
+      <Helmet>
+        <title>PhoneHub | Product</title>
+      </Helmet>
       <div>
         {loadedProduct.length === 0 ? (
           <div className="flex flex-col items-center">
@@ -52,9 +56,11 @@ const Product = () => {
                   <button className="px-4 py-2 bg-[#2658a3] hover:bg-transparent hover:border hover: border-[#2658a3] hover:text-black transition-all duration-300 rounded uppercase text-white font-medium">
                     Details
                   </button>
-                  <button className="px-4 py-2 bg-[#2658a3] hover:bg-transparent hover:border hover: border-[#2658a3] hover:text-black transition-all duration-300 rounded uppercase text-white font-medium">
-                    Update
-                  </button>
+                  <Link to={`/updateProduct/${product._id}`}>
+                    <button className="px-4 py-2 bg-[#2658a3] hover:bg-transparent hover:border hover: border-[#2658a3] hover:text-black transition-all duration-300 rounded uppercase text-white font-medium">
+                      Update
+                    </button>
+                  </Link>
                 </div>
               </div>
             ))}
