@@ -86,13 +86,28 @@ const Navbar = () => {
           {links}
           <div>
             {user ? (
-              <Link
-                to="/login"
-                onClick={handleLogout}
-                className="px-4 py-2 bg-[#2658a3] hover:bg-transparent hover:border hover: border-[#2658a3] hover:text-black transition-all duration-300 rounded uppercase text-white font-medium"
-              >
-                Log Out
-              </Link>
+              <div className="dropdown dropdown-end">
+                <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                  <div className="w-10 rounded-full">
+                    <img src={user.photoURL} alt="profile" />
+                  </div>
+                </label>
+                <ul
+                  tabIndex={0}
+                  className="z-20 menu dropdown-content bg-[#8d8e8f] bg-opacity-60 p-3 rounded-box text-center w-40"
+                >
+                  <li className="font-bold pb-3 uppercase">
+                    {user.displayName}
+                  </li>
+                  <Link
+                    to="/login"
+                    onClick={handleLogout}
+                    className="px-4 py-2 bg-[#2658a3] hover:bg-transparent hover:border hover: border-[#2658a3] hover:text-black transition-all duration-300 rounded uppercase text-white font-medium"
+                  >
+                    Log Out
+                  </Link>
+                </ul>
+              </div>
             ) : (
               <Link
                 to="/login"
@@ -110,19 +125,37 @@ const Navbar = () => {
         </div>
         <ul
           className={`absolute right-6 md:right-11 bg-[#8d8e8f] bg-opacity-60 rounded-lg p-5 ${
-            toggleMenu ? `top-14` : `-top-60`
+            toggleMenu ? `top-14` : `-top-80`
           } duration-1000`}
         >
+          <div>
+            {user && (
+              <div>
+                <li className="flex justify-center">
+                  <img
+                    src={user.photoURL}
+                    alt="profile"
+                    className="w-10 h-10 rounded-full"
+                  />
+                </li>
+                <li className="font-bold text-center mt-3">
+                  {user.displayName}
+                </li>
+              </div>
+            )}
+          </div>
           {links}
-          <div className="mt-3">
+          <div className="mt-5">
             {user ? (
-              <Link
-                to="/login"
-                onClick={handleLogout}
-                className="px-4 py-2 bg-[#2658a3] hover:bg-transparent hover:border hover: border-[#2658a3] hover:text-black transition-all duration-300 rounded uppercase text-white font-medium"
-              >
-                Log Out
-              </Link>
+              <div className="text-center">
+                <Link
+                  to="/login"
+                  onClick={handleLogout}
+                  className="px-4 py-2 bg-[#2658a3] hover:bg-transparent hover:border hover: border-[#2658a3] hover:text-black transition-all duration-300 rounded uppercase text-white font-medium"
+                >
+                  Log Out
+                </Link>
+              </div>
             ) : (
               <Link
                 to="/login"
