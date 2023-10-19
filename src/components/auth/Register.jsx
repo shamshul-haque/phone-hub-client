@@ -1,11 +1,14 @@
+import { updateProfile } from "firebase/auth";
 import { useContext } from "react";
 import { Helmet } from "react-helmet";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import { AuthContext } from "../../provider/AuthProvider";
 import SocialLogin from "./SocialLogin";
 
 const Register = () => {
-  const { userRegister } = useContext(AuthContext);
+  const { userRegister, logoutUser } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -15,14 +18,41 @@ const Register = () => {
     const password = form.get("password");
     const photo = form.get("photo");
     e.currentTarget.reset();
-    console.log(name, email, password, photo);
+
+    if (
+      !/^(?=.*[A-Z])(?=.*[!@#$%^&*()_+{}[\]:;<>,.?~\\-])[A-Za-z0-9!@#$%^&*()_+{}[\]:;<>,.?~\\-]{6,}$/.test(
+        password
+      )
+    ) {
+      toast.error(
+        "Password must include one uppercase & special character and length should be at least six!",
+        {
+          position: "top-center",
+          theme: "colored",
+        }
+      );
+      return;
+    }
 
     userRegister(email, password)
       .then((result) => {
-        console.log(result.user);
+        updateProfile(result.user, {
+          displayName: name,
+          photoURL: photo,
+        });
+        logoutUser().then(() => {
+          navigate("/login");
+        });
+        toast.success("Your profile created successfully. Please login now!", {
+          position: "top-center",
+          theme: "colored",
+        });
       })
       .catch((error) => {
-        console.log(error);
+        toast.error(error.code, {
+          position: "top-center",
+          theme: "colored",
+        });
       });
   };
 

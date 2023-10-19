@@ -2,10 +2,12 @@ import { createBrowserRouter } from "react-router-dom";
 import Login from "../components/auth/Login";
 import Register from "../components/auth/Register";
 import AddBrand from "../components/brand/AddBrand";
+import MyCart from "../components/cart/MyCart";
 import Home from "../components/home/Home";
 import AddProduct from "../components/product/AddProduct";
 import ErrorPage from "../errorPage/ErrorPage";
 import Root from "../layout/Root";
+import PrivateRoutes from "./PrivateRoutes";
 
 const router = createBrowserRouter([
   {
@@ -28,11 +30,27 @@ const router = createBrowserRouter([
       },
       {
         path: "/addBrand",
-        element: <AddBrand />,
+        element: (
+          <PrivateRoutes>
+            <AddBrand />
+          </PrivateRoutes>
+        ),
       },
       {
         path: "/addProduct",
-        element: <AddProduct />,
+        element: (
+          <PrivateRoutes>
+            <AddProduct />
+          </PrivateRoutes>
+        ),
+      },
+      {
+        path: "/myCart",
+        element: (
+          <PrivateRoutes>
+            <MyCart />
+          </PrivateRoutes>
+        ),
       },
     ],
   },

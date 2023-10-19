@@ -1,11 +1,15 @@
 import { useContext } from "react";
 import { Helmet } from "react-helmet";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import { AuthContext } from "../../provider/AuthProvider";
 import SocialLogin from "./SocialLogin";
 
 const Login = () => {
   const { userLogin } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from || "/";
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -13,14 +17,24 @@ const Login = () => {
     const email = form.get("email");
     const password = form.get("password");
     e.currentTarget.reset();
-    console.log(email, password);
 
     userLogin(email, password)
       .then((result) => {
-        console.log(result.user);
+        if (result.user) {
+          navigate(from, {
+            replace: true,
+          });
+        }
+        toast.success("Login successfully!", {
+          position: "top-center",
+          theme: "colored",
+        });
       })
-      .catch((error) => {
-        console.log(error);
+      .catch(() => {
+        toast.error("Please provide correct email and password!", {
+          position: "top-center",
+          theme: "colored",
+        });
       });
   };
 
