@@ -12,12 +12,12 @@ const Banner = () => {
       }}
       className="px-5 md:px-10 lg:px-20 py-10"
     >
-      <div className="flex justify-between items-center">
-        <div className="text-center text-white space-y-10">
-          <h1 className="text-5xl text-bold uppercase">
+      <div className="flex flex-col lg:flex-row justify-between items-center gap-10">
+        <div className="text-center text-white space-y-6">
+          <h1 className="text-2xl md:text-5xl text-bold uppercase">
             Latest Collections Are Available!
           </h1>
-          <p className="text-2xl">
+          <p className="text-lg md:text-2xl">
             Discover the Hottest Tech Trends in Our Latest Collection!
           </p>
           <button className="px-4 py-2 bg-[#2658a3] hover:bg-transparent hover:border hover: border-[#2658a3] transition-all duration-300 rounded uppercase text-white font-medium">
