@@ -1,10 +1,14 @@
+import { useContext } from "react";
 import { Helmet } from "react-helmet";
-import { Link, useLoaderData } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
+import { toast } from "react-toastify";
+import { AuthContext } from "../../provider/AuthProvider";
 
 const ProductDetails = () => {
+  const { user } = useContext(AuthContext);
+  const { email } = user;
   const loadedProduct = useLoaderData();
   const {
-    _id,
     product_img,
     product_name,
     brand_name,
@@ -13,6 +17,36 @@ const ProductDetails = () => {
     price,
     rating,
   } = loadedProduct;
+
+  const handleAddToCart = () => {
+    const cart = {
+      email,
+      product_img,
+      product_name,
+      brand_name,
+      type,
+      description,
+      price,
+      rating,
+    };
+    const cartProduct = async () => {
+      const res = await fetch("http://localhost:5000/cart", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(cart),
+      });
+      const data = await res.json();
+      if (data.insertedId) {
+        toast.success("Added to cart successfully!", {
+          position: "top-center",
+          theme: "colored",
+        });
+      }
+    };
+    cartProduct();
+  };
 
   return (
     <div className="px-5 md:px-10 lg:px-20 py-10">
@@ -52,12 +86,12 @@ const ProductDetails = () => {
             <span>{rating}</span>
           </p>
           <div className="flex justify-center md:justify-end pt-5">
-            <Link
-              to={`/cart/:${_id}`}
+            <button
+              onClick={handleAddToCart}
               className="px-4 py-2 bg-[#2658a3] hover:bg-transparent hover:border hover: border-[#2658a3] hover:text-black transition-all duration-300 rounded uppercase text-white font-medium"
             >
               Add to Cart
-            </Link>
+            </button>
           </div>
         </div>
       </div>
