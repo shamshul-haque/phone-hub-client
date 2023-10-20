@@ -59,8 +59,7 @@ const Navbar = () => {
       </li>
       <li>
         <NavLink
-          // to={`/cart/:${user.email}`}
-          to="/myCart"
+          to={`/cart/${user?.email}`}
           className={({ isActive }) =>
             isActive ? "text-[#2658a3] underline active" : ""
           }
