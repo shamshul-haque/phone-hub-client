@@ -36,7 +36,6 @@ const UpdateProduct = () => {
         body: JSON.stringify(updateProduct),
       });
       const data = await res.json();
-      console.log(data);
       if (data.modifiedCount > 0) {
         Swal.fire({
           title: "Success!",

@@ -33,7 +33,6 @@ const AddProduct = () => {
         body: JSON.stringify(newProduct),
       });
       const data = await res.json();
-      console.log(data);
       if (data.insertedId) {
         Swal.fire({
           title: "Success!",
@@ -104,12 +103,11 @@ const AddProduct = () => {
               />
             </div>
             <div className="form-control">
-              <input
-                type="text"
+              <textarea
                 name="description"
                 placeholder="Short Description"
                 className="p-2 rounded outline-0 text-sm"
-              />
+              ></textarea>
             </div>
             <div className="form-control">
               <input

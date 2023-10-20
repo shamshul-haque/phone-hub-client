@@ -4,7 +4,6 @@ import empty from "../../assets/images/empty.png";
 
 const Product = () => {
   const loadedProduct = useLoaderData();
-  console.log(loadedProduct);
   return (
     <div className="px-5 md:px-10 lg:px-20 py-10">
       <Helmet>
@@ -23,16 +22,16 @@ const Product = () => {
             {loadedProduct.map((product) => (
               <div
                 key={product._id}
-                className="p-5 bg-white shadow-xl rounded-xl flex justify-between"
+                className="p-5 bg-white shadow-xl rounded-xl flex flex-col lg:flex-row items-center justify-between gap-5"
               >
                 <img
                   src={product?.product_img}
                   alt={product?.product_name}
-                  className="w-32 object-cover"
+                  className="w-64 lg:w-32 h-full lg:h-40 object-cover"
                 />
                 <div className="text-lg space-y-2">
                   <p>
-                    <span className="font-bold ">Name: </span>
+                    <span className="font-bold">Name: </span>
                     {product?.product_name}
                   </p>
                   <p>
@@ -52,7 +51,7 @@ const Product = () => {
                     {product.rating}
                   </p>
                 </div>
-                <div className="flex flex-col justify-center gap-5">
+                <div className="flex flex-row lg:flex-col justify-center gap-5">
                   <button className="px-4 py-2 bg-[#2658a3] hover:bg-transparent hover:border hover: border-[#2658a3] hover:text-black transition-all duration-300 rounded uppercase text-white font-medium">
                     Details
                   </button>
