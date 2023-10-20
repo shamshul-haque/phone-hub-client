@@ -3,9 +3,9 @@ import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const UpdateProduct = () => {
-  const product = useLoaderData();
+  const loadedProduct = useLoaderData();
   const { _id, product_img, product_name, brand_name, type, price, rating } =
-    product;
+    loadedProduct;
 
   const handleUpdateProduct = (e) => {
     e.preventDefault();

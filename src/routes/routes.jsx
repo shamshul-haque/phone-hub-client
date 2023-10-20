@@ -6,6 +6,7 @@ import MyCart from "../components/cart/MyCart";
 import Home from "../components/home/Home";
 import AddProduct from "../components/product/AddProduct";
 import Product from "../components/product/Product";
+import ProductDetails from "../components/product/ProductDetails";
 import UpdateProduct from "../components/product/UpdateProduct";
 import ErrorPage from "../errorPage/ErrorPage";
 import Root from "../layout/Root";
@@ -51,6 +52,16 @@ const router = createBrowserRouter([
         element: <Product />,
         loader: ({ params }) =>
           fetch(`http://localhost:5000/product/${params.brand_name}`),
+      },
+      {
+        path: "/productDetails/:id",
+        element: (
+          <PrivateRoutes>
+            <ProductDetails />
+          </PrivateRoutes>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/products/${params.id}`),
       },
       {
         path: "/updateProduct/:id",

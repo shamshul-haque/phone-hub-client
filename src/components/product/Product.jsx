@@ -52,9 +52,11 @@ const Product = () => {
                   </p>
                 </div>
                 <div className="flex flex-row lg:flex-col justify-center gap-5">
-                  <button className="px-4 py-2 bg-[#2658a3] hover:bg-transparent hover:border hover: border-[#2658a3] hover:text-black transition-all duration-300 rounded uppercase text-white font-medium">
-                    Details
-                  </button>
+                  <Link to={`/productDetails/${product._id}`}>
+                    <button className="px-4 py-2 bg-[#2658a3] hover:bg-transparent hover:border hover: border-[#2658a3] hover:text-black transition-all duration-300 rounded uppercase text-white font-medium">
+                      Details
+                    </button>
+                  </Link>
                   <Link to={`/updateProduct/${product._id}`}>
                     <button className="px-4 py-2 bg-[#2658a3] hover:bg-transparent hover:border hover: border-[#2658a3] hover:text-black transition-all duration-300 rounded uppercase text-white font-medium">
                       Update
