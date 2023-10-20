@@ -9,9 +9,9 @@ const Support = () => {
       <p>ALWAYS ON YOUR SIDE WHEN YOU NEED HELP</p>
       <div className="bg-green-400 flex-1 flex justify-center gap-5 rounded-xl p-10 mt-5">
         <div className="space-y-3">
-          <h3 className="text-2xl font-bold">HAVE ANY DOUBTS?</h3>
-          <h1 className="text-4xl font-bold">CALL US NOW</h1>
-          <p className="text-2xl flex items-center gap-2">
+          <h3 className="text-xl md:text-2xl font-bold">HAVE ANY DOUBTS?</h3>
+          <h1 className="text-2xl md:text-4xl font-bold">CALL US NOW</h1>
+          <p className="text-xl md:text-2xl flex items-center gap-2">
             <FiPhoneCall />
             <span>+880 1406680846</span>
           </p>

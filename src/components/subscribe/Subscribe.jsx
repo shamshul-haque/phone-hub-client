@@ -14,8 +14,8 @@ const Subscribe = () => {
         <div className="hero-overlay bg-opacity-80 rounded-xl"></div>
         <div className="hero-content text-center text-neutral-content">
           <div className="py-10">
-            <h1 className=" text-3xl font-bold">SUBSCRIBE NOW</h1>
-            <h2 className="m-10 text-4xl font-bold">
+            <h1 className="text-xl md:text-3xl font-bold">SUBSCRIBE NOW</h1>
+            <h2 className="my-5 text-2xl md:text-4xl font-bold">
               GET OUR UPDATES ALWAYS FAST
             </h2>
             <input
@@ -24,7 +24,7 @@ const Subscribe = () => {
               className="w-full p-3 rounded-full outline-0"
             />
             <button className="px-4 py-2 bg-[#2658a3] hover:bg-transparent hover:border hover: border-[#2658a3] transition-all duration-300 rounded-full uppercase text-white font-medium mt-10">
-              Order Now
+              Subscribe Now
             </button>
           </div>
         </div>
