@@ -30,13 +30,16 @@ const ProductDetails = () => {
       rating,
     };
     const cartProduct = async () => {
-      const res = await fetch("http://localhost:5000/cart", {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(cart),
-      });
+      const res = await fetch(
+        "https://brand-shop-serve-side-63i22v5jh-shamshul-haque.vercel.app/cart",
+        {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(cart),
+        }
+      );
       const data = await res.json();
       if (data.insertedId) {
         toast.success("Added to cart successfully!", {

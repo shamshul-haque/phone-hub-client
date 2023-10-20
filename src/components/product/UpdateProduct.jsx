@@ -28,13 +28,16 @@ const UpdateProduct = () => {
     };
 
     const updatedProduct = async () => {
-      const res = await fetch(`http://localhost:5000/products/${_id}`, {
-        method: "PUT",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(updateProduct),
-      });
+      const res = await fetch(
+        `https://brand-shop-serve-side-63i22v5jh-shamshul-haque.vercel.app/products/${_id}`,
+        {
+          method: "PUT",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(updateProduct),
+        }
+      );
       const data = await res.json();
       if (data.modifiedCount > 0) {
         Swal.fire({

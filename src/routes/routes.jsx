@@ -21,7 +21,10 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
-        loader: () => fetch("http://localhost:5000/brand"),
+        loader: () =>
+          fetch(
+            "https://brand-shop-serve-side-63i22v5jh-shamshul-haque.vercel.app/brand"
+          ),
       },
       {
         path: "/login",
@@ -51,7 +54,9 @@ const router = createBrowserRouter([
         path: "/product/:brand_name",
         element: <Product />,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/product/${params.brand_name}`),
+          fetch(
+            `https://brand-shop-serve-side-63i22v5jh-shamshul-haque.vercel.app/product/${params.brand_name}`
+          ),
       },
       {
         path: "/productDetails/:id",
@@ -61,7 +66,9 @@ const router = createBrowserRouter([
           </PrivateRoutes>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/products/${params.id}`),
+          fetch(
+            `https://brand-shop-serve-side-63i22v5jh-shamshul-haque.vercel.app/products/${params.id}`
+          ),
       },
       {
         path: "/updateProduct/:id",
@@ -71,19 +78,17 @@ const router = createBrowserRouter([
           </PrivateRoutes>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/products/${params.id}`),
+          fetch(
+            `https://brand-shop-serve-side-63i22v5jh-shamshul-haque.vercel.app/products/${params.id}`
+          ),
       },
       {
-        path: "/cart/:email",
-        // path: "/myCart",
+        path: "/myCart",
         element: (
           <PrivateRoutes>
             <MyCart />
           </PrivateRoutes>
         ),
-        // loader: () => fetch("http://localhost:5000/cart"),
-        loader: ({ params }) =>
-          fetch(`http://localhost:5000/cart/${params.email}`),
       },
     ],
   },

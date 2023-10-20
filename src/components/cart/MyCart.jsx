@@ -1,11 +1,26 @@
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AiFillDelete } from "react-icons/ai";
-import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
+import { AuthContext } from "../../provider/AuthProvider";
 
 const MyCart = () => {
-  const loadedCart = useLoaderData();
-  const [cart, setCart] = useState(loadedCart);
+  const [cart, setCart] = useState([]);
+  console.log(cart);
+
+  const { user } = useContext(AuthContext);
+  const { email } = user;
+
+  useEffect(() => {
+    const getItem = async () => {
+      const res = await fetch(
+        `https://brand-shop-serve-side-63i22v5jh-shamshul-haque.vercel.app/cart/${email}`
+      );
+      const data = await res.json();
+      console.log(data);
+      setCart(data);
+    };
+    getItem();
+  }, [email]);
 
   const handleDelete = (id) => {
     Swal.fire({
@@ -19,9 +34,12 @@ const MyCart = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         const deleteItem = async () => {
-          const res = await fetch(`http://localhost:5000/cart/${id}`, {
-            method: "DELETE",
-          });
+          const res = await fetch(
+            `https://brand-shop-serve-side-63i22v5jh-shamshul-haque.vercel.app/cart/${id}`,
+            {
+              method: "DELETE",
+            }
+          );
           const data = await res.json();
           if (data.deletedCount > 0) {
             Swal.fire("Deleted!", "Your item has been deleted.", "success");

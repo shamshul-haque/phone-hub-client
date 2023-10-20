@@ -12,13 +12,16 @@ const AddBrand = () => {
     const newBrand = { brand_name, brand_img };
 
     const postBrand = async () => {
-      const res = await fetch("http://localhost:5000/brand", {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(newBrand),
-      });
+      const res = await fetch(
+        "https://brand-shop-serve-side-63i22v5jh-shamshul-haque.vercel.app/brand",
+        {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(newBrand),
+        }
+      );
       const data = await res.json();
       console.log(data);
       if (data.insertedId) {

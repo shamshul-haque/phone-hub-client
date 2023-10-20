@@ -25,13 +25,16 @@ const AddProduct = () => {
     };
 
     const postProduct = async () => {
-      const res = await fetch("http://localhost:5000/product", {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(newProduct),
-      });
+      const res = await fetch(
+        "https://brand-shop-serve-side-63i22v5jh-shamshul-haque.vercel.app/product",
+        {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(newProduct),
+        }
+      );
       const data = await res.json();
       if (data.insertedId) {
         Swal.fire({
