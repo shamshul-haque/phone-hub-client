@@ -13,7 +13,7 @@ const Product = () => {
       <Helmet>
         <title>PhoneHub | Product</title>
       </Helmet>
-      <div>{loadedProduct !== 0 && <Advertisement />}</div>
+      <div>{loadedProduct.length !== 0 && <Advertisement />}</div>
       <div className="px-5 md:px-10 lg:px-20 py-10">
         {loadedProduct.length === 0 ? (
           <div className="flex flex-col items-center">
