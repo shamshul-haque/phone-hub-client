@@ -5,7 +5,7 @@ import "swiper/css/navigation";
 import { Autoplay, Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
-const BestCell = () => {
+const BestSell = () => {
   const [bestCell, setBestCell] = useState([]);
 
   useEffect(() => {
@@ -23,7 +23,9 @@ const BestCell = () => {
 
   return (
     <div className="px-5 md:px-10 lg:px-20 py-10 text-center dark:text-white">
-      <h1 className="text-3xl font-bold uppercase">Our Best Cell</h1>
+      <h1 className="text-3xl font-bold uppercase">
+        Our Best Selling Products
+      </h1>
       <div className="mt-5 hidden md:block">
         <Swiper
           spaceBetween={0}
@@ -74,4 +76,4 @@ const BestCell = () => {
   );
 };
 
-export default BestCell;
+export default BestSell;
