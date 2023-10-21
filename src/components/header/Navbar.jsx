@@ -127,7 +127,7 @@ const Navbar = ({ theme, handleSwitchTheme }) => {
           </button>
         </ul>
       </div>
-      <div className="lg:hidden flex">
+      <div className="lg:hidden flex z-50">
         <div onClick={() => setToggleMenu(!toggleMenu)}>
           {toggleMenu === true ? (
             <AiOutlineClose className="dark:text-white" />

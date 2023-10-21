@@ -1,15 +1,16 @@
 import { useEffect, useState } from "react";
 import "swiper/css";
 import "swiper/css/autoplay";
-import { Autoplay } from "swiper/modules";
+import "swiper/css/navigation";
+import { Autoplay, Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
-const Slider = () => {
+const Advertisement = () => {
   const [sliders, setSliders] = useState([]);
 
   useEffect(() => {
     const getSlider = async () => {
-      const res = await fetch("/slider.json");
+      const res = await fetch("/advertisement.json");
       const data = await res.json();
       setSliders(data);
     };
@@ -17,25 +18,20 @@ const Slider = () => {
   }, []);
 
   return (
-    <div>
+    <div className="px-5 md:px-10 lg:px-20 pt-10">
       <Swiper
         spaceBetween={0}
         slidesPerView={1}
-        modules={[Autoplay]}
+        modules={[Navigation, Autoplay]}
+        navigation
         autoplay={{ delay: 2000, disableOnInteraction: true }}
         loop
       >
         {sliders.map((slider) => (
           <SwiperSlide key={slider.id}>
-            <div
-              style={{
-                backgroundImage: `url(${slider.image})`,
-                backgroundPosition: "center center",
-                backgroundRepeat: "no-repeat",
-                backgroundSize: "cover",
-              }}
-              className="h-[60vh]"
-            ></div>
+            <div>
+              <img src={slider.image} alt="slider" className="w-full h-80" />
+            </div>
           </SwiperSlide>
         ))}
       </Swiper>
@@ -43,4 +39,4 @@ const Slider = () => {
   );
 };
 
-export default Slider;
+export default Advertisement;

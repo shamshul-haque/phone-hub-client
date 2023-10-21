@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet";
 import ReactStars from "react-rating-stars-component";
 import { Link, useLoaderData } from "react-router-dom";
 import empty from "../../assets/images/empty.png";
-import Slider from "../slider/Slider";
+import Advertisement from "../advertisement/Advertisement";
 
 const Product = () => {
   const loadedProduct = useLoaderData();
@@ -13,7 +13,7 @@ const Product = () => {
       <Helmet>
         <title>PhoneHub | Product</title>
       </Helmet>
-      <div>{loadedProduct !== 0 && <Slider />}</div>
+      <div>{loadedProduct !== 0 && <Advertisement />}</div>
       <div className="px-5 md:px-10 lg:px-20 py-10">
         {loadedProduct.length === 0 ? (
           <div className="flex flex-col items-center">

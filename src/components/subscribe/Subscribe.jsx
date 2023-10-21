@@ -1,5 +1,12 @@
+import { toast } from "react-toastify";
 import subscribe from "../../assets/images/subscribe.jpg";
 const Subscribe = () => {
+  const handleSubscription = () => {
+    toast.info("Thank you for your subscription!", {
+      position: "top-center",
+      theme: "colored",
+    });
+  };
   return (
     <div className="px-5 md:px-10 lg:px-20 rounded">
       <div
@@ -21,13 +28,15 @@ const Subscribe = () => {
               GET OUR UPDATES ALWAYS FAST
             </h2>
             <input
-              type="text"
+              type="email"
               placeholder="Enter your email"
               className="w-full p-3 rounded-full outline-0"
             />
-            <button className="px-4 py-2 bg-[#2658a3] hover:bg-transparent hover:border hover: border-[#2658a3] transition-all duration-300 rounded-full uppercase text-white font-medium mt-10">
-              Subscribe Now
-            </button>
+            <input
+              onClick={handleSubscription}
+              value="Subscribe Now"
+              className="px-4 py-2 bg-[#2658a3] text-center cursor-pointer hover:bg-transparent hover:border hover: border-[#2658a3] transition-all duration-300 rounded-full uppercase text-white font-medium mt-10"
+            />
           </div>
         </div>
       </div>

@@ -1,8 +1,8 @@
 import { Helmet } from "react-helmet";
+import BestCell from "../bestCell/BestCell";
 import Brand from "../brand/Brand";
 import Banner from "../header/Banner";
 import Subscribe from "../subscribe/Subscribe";
-import Support from "../support/Support";
 
 const Home = () => {
   return (
@@ -13,7 +13,7 @@ const Home = () => {
       <Banner />
       <Brand />
       <Subscribe />
-      <Support />
+      <BestCell />
     </div>
   );
 };

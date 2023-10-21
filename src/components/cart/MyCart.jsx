@@ -52,9 +52,9 @@ const MyCart = () => {
 
   return (
     <div className="overflow-x-auto px-5 md:px-10 lg:px-20 py-10 dark:text-white">
-      <table className="table">
+      <table className="table w-2/3 mx-auto">
         <thead>
-          <tr className="dark:text-white">
+          <tr className="text-xs md:text-base dark:text-white">
             <th>Product Name</th>
             <th>Brand Name</th>
             <th>Product Photo</th>
@@ -63,7 +63,7 @@ const MyCart = () => {
         </thead>
         <tbody>
           {cart.map((item) => (
-            <tr key={item._id}>
+            <tr key={item._id} className="text-xs md:text-sm">
               <td>{item.product_name}</td>
               <td>{item.brand_name}</td>
               <td>
