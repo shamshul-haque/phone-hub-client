@@ -1,5 +1,7 @@
 import PropTypes from "prop-types";
 import { Helmet } from "react-helmet";
+import { AiFillEye } from "react-icons/ai";
+import { BsFillPencilFill } from "react-icons/bs";
 import ReactStars from "react-rating-stars-component";
 import { Link, useLoaderData } from "react-router-dom";
 import empty from "../../assets/images/empty.png";
@@ -65,12 +67,12 @@ const Product = () => {
                     <div className="space-x-3">
                       <Link to={`/productDetails/${product._id}`}>
                         <button className="px-4 py-2 bg-[#2658a3] hover:bg-transparent hover:border hover: border-[#2658a3] hover:text-black transition-all duration-300 rounded uppercase text-white font-medium">
-                          Details
+                          <AiFillEye />
                         </button>
                       </Link>
                       <Link to={`/updateProduct/${product._id}`}>
                         <button className="px-4 py-2 bg-[#2658a3] hover:bg-transparent hover:border hover: border-[#2658a3] hover:text-black transition-all duration-300 rounded uppercase text-white font-medium">
-                          Update
+                          <BsFillPencilFill />
                         </button>
                       </Link>
                     </div>
