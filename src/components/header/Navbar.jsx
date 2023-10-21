@@ -1,11 +1,13 @@
+import PropTypes from "prop-types";
 import { useContext, useState } from "react";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
+import { BsFillMoonFill, BsFillSunFill } from "react-icons/bs";
 import { Link, NavLink } from "react-router-dom";
 import { toast } from "react-toastify";
 import logo from "../../assets/logo/logo.png";
 import { AuthContext } from "../../provider/AuthProvider";
 
-const Navbar = () => {
+const Navbar = ({ theme, handleSwitchTheme }) => {
   const { user, logoutUser } = useContext(AuthContext);
   const [toggleMenu, setToggleMenu] = useState(false);
 
@@ -27,7 +29,7 @@ const Navbar = () => {
 
   const links = (
     <>
-      <li>
+      <li className="dark:text-white">
         <NavLink
           to="/"
           className={({ isActive }) =>
@@ -37,7 +39,7 @@ const Navbar = () => {
           Home
         </NavLink>
       </li>
-      <li>
+      <li className="dark:text-white">
         <NavLink
           to="/addBrand"
           className={({ isActive }) =>
@@ -47,7 +49,7 @@ const Navbar = () => {
           Add Brand
         </NavLink>
       </li>
-      <li>
+      <li className="dark:text-white">
         <NavLink
           to="/addProduct"
           className={({ isActive }) =>
@@ -57,9 +59,8 @@ const Navbar = () => {
           Add Product
         </NavLink>
       </li>
-      <li>
+      <li className="dark:text-white">
         <NavLink
-          // to={`/cart/${user?.email}`}
           to="/myCart"
           className={({ isActive }) =>
             isActive ? "text-[#2658a3] underline active" : ""
@@ -97,7 +98,7 @@ const Navbar = () => {
                   tabIndex={0}
                   className="z-20 menu dropdown-content bg-[#8d8e8f] bg-opacity-60 p-3 rounded-box text-center w-40"
                 >
-                  <li className="font-bold pb-3 uppercase">
+                  <li className="font-bold pb-3 uppercase dark:text-white">
                     {user.displayName}
                   </li>
                   <Link
@@ -118,14 +119,24 @@ const Navbar = () => {
               </Link>
             )}
           </div>
+          <button
+            onClick={handleSwitchTheme}
+            className=" text-slate-500 dark:text-white right-2 top-2 bg-[#2658a3] text-lg p-2 rounded-md"
+          >
+            {theme === "dark" ? <BsFillSunFill /> : <BsFillMoonFill />}
+          </button>
         </ul>
       </div>
       <div className="lg:hidden flex">
         <div onClick={() => setToggleMenu(!toggleMenu)}>
-          {toggleMenu === true ? <AiOutlineClose /> : <AiOutlineMenu />}
+          {toggleMenu === true ? (
+            <AiOutlineClose className="dark:text-white" />
+          ) : (
+            <AiOutlineMenu className="dark:text-white" />
+          )}
         </div>
         <ul
-          className={`absolute right-6 md:right-11 bg-[#8d8e8f] bg-opacity-60 rounded-lg p-5 ${
+          className={`absolute right-6 md:right-11 bg-[#8d8e8f] rounded-lg p-5 ${
             toggleMenu ? `top-14` : `-top-80`
           } duration-1000`}
         >
@@ -148,7 +159,7 @@ const Navbar = () => {
           {links}
           <div className="mt-5">
             {user ? (
-              <div className="text-center">
+              <div className="flex items-center gap-2">
                 <Link
                   to="/login"
                   onClick={handleLogout}
@@ -156,20 +167,39 @@ const Navbar = () => {
                 >
                   Log Out
                 </Link>
+                <button
+                  onClick={handleSwitchTheme}
+                  className=" text-slate-500 dark:text-white right-2 top-2 bg-[#2658a3] text-lg p-2 rounded-md"
+                >
+                  {theme === "dark" ? <BsFillSunFill /> : <BsFillMoonFill />}
+                </button>
               </div>
             ) : (
-              <Link
-                to="/login"
-                className="px-4 py-2 bg-[#2658a3] hover:bg-transparent hover:border hover: border-[#2658a3] hover:text-black transition-all duration-300 rounded uppercase text-white font-medium"
-              >
-                Login
-              </Link>
+              <div className="flex items-center gap-2">
+                <Link
+                  to="/login"
+                  className="px-4 py-2 bg-[#2658a3] hover:bg-transparent hover:border hover: border-[#2658a3] hover:text-black transition-all duration-300 rounded uppercase text-white font-medium"
+                >
+                  Login
+                </Link>
+                <button
+                  onClick={handleSwitchTheme}
+                  className=" text-slate-500 dark:text-white right-2 top-2 bg-[#2658a3] text-lg p-2 rounded-md"
+                >
+                  {theme === "dark" ? <BsFillSunFill /> : <BsFillMoonFill />}
+                </button>
+              </div>
             )}
           </div>
         </ul>
       </div>
     </div>
   );
+};
+
+Navbar.propTypes = {
+  theme: PropTypes.string,
+  handleSwitchTheme: PropTypes.func,
 };
 
 export default Navbar;

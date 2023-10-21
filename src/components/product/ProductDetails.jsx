@@ -56,14 +56,14 @@ const ProductDetails = () => {
       <Helmet>
         <title>PhoneHub | Product Details</title>
       </Helmet>
-      <h1 className="text-3xl text-center font-bold pb-10">
+      <h1 className="text-3xl text-center font-bold pb-10 dark:text-white">
         Details of {product_name}
       </h1>
-      <div className="bg-white shadow-xl rounded-xl p-10 flex flex-col lg:flex-row items-center justify-between gap-5">
+      <div className="bg-white dark:bg-slate-500 shadow-xl rounded-xl p-10 flex flex-col lg:flex-row items-center justify-between gap-5">
         <div className="flex-1">
           <img src={product_img} alt={product_name} className="object-fill" />
         </div>
-        <div className="space-y-2 flex-1">
+        <div className="space-y-2 flex-1 dark:text-white">
           <p>
             <span className="font-bold">Brand: </span>
             <span className="uppercase">{brand_name}</span>

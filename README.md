@@ -30,4 +30,8 @@ Explore the exciting features of our project that make it stand out:
 
 - **Explore Comprehensive Information:** Dive deep into your content, accessing detailed insights and discovering in-depth information effortlessly with this interactive feature.
 
+## 6. Theme Mode Switching
+
+- **Customizable Theme:** Allow users to switch between dark and light themes for a personalized browsing experience.
+
 These features collectively make our project not only functional but also engaging and user-friendly.

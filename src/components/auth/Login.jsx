@@ -44,8 +44,8 @@ const Login = () => {
         <title>PhoneHub | Login</title>
       </Helmet>
       <div className="flex flex-col items-center my-10">
-        <div className="w-full max-w-sm bg-[#F4F3F0] rounded p-5">
-          <h1 className="text-3xl text-[#374151] text-center font-bold">
+        <div className="w-full max-w-sm bg-[#F4F3F0] dark:bg-slate-500 rounded p-5">
+          <h1 className="text-3xl text-[#374151] dark:text-white text-center font-bold">
             Login Now
           </h1>
           <form onSubmit={handleLogin} className="mt-5 space-y-5 ">
@@ -70,7 +70,7 @@ const Login = () => {
             <div className="flex items-center justify-between">
               <p className="flex gap-1">
                 <input type="checkbox" name="terms" />
-                <span className="text-sm">Remember Me</span>
+                <span className="text-sm dark:text-white">Remember Me</span>
               </p>
               <Link to="#" className="text-sm text-[#2658a3] hover:underline">
                 Forgot Password
@@ -79,10 +79,10 @@ const Login = () => {
             <input
               type="submit"
               value="Login"
-              className="text-xl p-2 rounded border w-full text-center text-white hover:text-black bg-[#2658a3] hover:bg-transparent cursor-pointer hover:border-[#8d8e8f] font-medium uppercase transition-all duration-500"
+              className="text-xl p-2 rounded  w-full text-center text-white hover:text-black dark:hover:text-white bg-[#2658a3] hover:bg-transparent cursor-pointer hover:border hover:border-[#8d8e8f] dark:hover:border-white  font-medium uppercase transition-all duration-500"
             />
           </form>
-          <p className="text-sm  text-center pt-5">
+          <p className="text-sm dark:text-white text-center pt-5">
             <span>{`Don't Have Any Account?`}</span>{" "}
             <Link
               to="/register"

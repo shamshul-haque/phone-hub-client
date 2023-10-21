@@ -5,7 +5,6 @@ import { AuthContext } from "../../provider/AuthProvider";
 
 const MyCart = () => {
   const [cart, setCart] = useState([]);
-  console.log(cart);
 
   const { user } = useContext(AuthContext);
   const { email } = user;
@@ -16,7 +15,6 @@ const MyCart = () => {
         `https://brand-shop-serve-side-63i22v5jh-shamshul-haque.vercel.app/cart/${email}`
       );
       const data = await res.json();
-      console.log(data);
       setCart(data);
     };
     getItem();
@@ -53,10 +51,10 @@ const MyCart = () => {
   };
 
   return (
-    <div className="overflow-x-auto px-5 md:px-10 lg:px-20 py-10">
+    <div className="overflow-x-auto px-5 md:px-10 lg:px-20 py-10 dark:text-white">
       <table className="table">
         <thead>
-          <tr>
+          <tr className="dark:text-white">
             <th>Product Name</th>
             <th>Brand Name</th>
             <th>Product Photo</th>

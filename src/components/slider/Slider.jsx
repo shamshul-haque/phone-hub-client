@@ -1,56 +1,43 @@
+import { useEffect, useState } from "react";
 import "swiper/css";
 import "swiper/css/autoplay";
-import "swiper/css/navigation";
-import { Autoplay, Navigation } from "swiper/modules";
+import { Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-import slider1 from "../../assets/images/slider1.png";
-import slider2 from "../../assets/images/slider2.png";
-import slider3 from "../../assets/images/slider3.jpg";
 
 const Slider = () => {
+  const [sliders, setSliders] = useState([]);
+
+  useEffect(() => {
+    const getSlider = async () => {
+      const res = await fetch("/slider.json");
+      const data = await res.json();
+      setSliders(data);
+    };
+    getSlider();
+  }, []);
+
   return (
     <div>
       <Swiper
         spaceBetween={0}
         slidesPerView={1}
-        modules={[Navigation, Autoplay]}
-        navigation
-        autoplay={true}
+        modules={[Autoplay]}
+        autoplay={{ delay: 2000, disableOnInteraction: true }}
         loop
       >
-        <SwiperSlide>
-          <div
-            style={{
-              backgroundImage: `url(${slider1})`,
-              backgroundPosition: "center center",
-              backgroundRepeat: "no-repeat",
-              backgroundSize: "cover",
-            }}
-            className="h-[50vh]"
-          ></div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div
-            style={{
-              backgroundImage: `url(${slider2})`,
-              backgroundPosition: "center center",
-              backgroundRepeat: "no-repeat",
-              backgroundSize: "cover",
-            }}
-            className="h-[50vh]"
-          ></div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div
-            style={{
-              backgroundImage: `url(${slider3})`,
-              backgroundPosition: "center center",
-              backgroundRepeat: "no-repeat",
-              backgroundSize: "cover",
-            }}
-            className="h-[50vh]"
-          ></div>
-        </SwiperSlide>
+        {sliders.map((slider) => (
+          <SwiperSlide key={slider.id}>
+            <div
+              style={{
+                backgroundImage: `url(${slider.image})`,
+                backgroundPosition: "center center",
+                backgroundRepeat: "no-repeat",
+                backgroundSize: "cover",
+              }}
+              className="h-[60vh]"
+            ></div>
+          </SwiperSlide>
+        ))}
       </Swiper>
     </div>
   );

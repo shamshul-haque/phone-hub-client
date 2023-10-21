@@ -12,8 +12,9 @@ const AddProduct = () => {
     const type = form.type.value;
     const price = form.price.value;
     const description = form.description.value;
-    const rating = form.rating.value;
+    const rating = parseInt(form.rating.value);
     form.reset();
+
     const newProduct = {
       product_img,
       product_name,
@@ -54,8 +55,8 @@ const AddProduct = () => {
         <title>PhoneHub | Add Product</title>
       </Helmet>
       <div className="flex flex-col items-center my-10">
-        <div className="w-full max-w-sm bg-[#F4F3F0] rounded p-5">
-          <h1 className="text-3xl text-[#374151] text-center font-bold">
+        <div className="w-full max-w-sm bg-[#F4F3F0] dark:bg-slate-500 rounded p-5">
+          <h1 className="text-3xl text-[#374151] dark:text-white text-center font-bold">
             Add New Product
           </h1>
           <form onSubmit={handleAddProduct} className="mt-5 space-y-5 ">
@@ -124,7 +125,7 @@ const AddProduct = () => {
               <input
                 type="submit"
                 value="Add"
-                className="text-xl p-2 rounded border w-full text-center text-white hover:text-black bg-[#2658a3] hover:bg-transparent cursor-pointer hover:border-[#8d8e8f] font-medium uppercase transition-all duration-500"
+                className="text-xl p-2 rounded  w-full text-center text-white hover:text-black bg-[#2658a3] hover:bg-transparent cursor-pointer hover:border hover:border-[#8d8e8f] dark:hover:border-white font-medium uppercase transition-all duration-500"
               />
             </div>
           </form>

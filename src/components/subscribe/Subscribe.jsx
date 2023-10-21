@@ -14,8 +14,10 @@ const Subscribe = () => {
         <div className="hero-overlay bg-opacity-80 rounded-xl"></div>
         <div className="hero-content text-center text-neutral-content">
           <div className="py-10">
-            <h1 className="text-xl md:text-3xl font-bold">SUBSCRIBE NOW</h1>
-            <h2 className="my-5 text-2xl md:text-4xl font-bold">
+            <h1 className="text-xl md:text-3xl font-bold dark:text-white">
+              SUBSCRIBE NOW
+            </h1>
+            <h2 className="my-5 text-2xl md:text-4xl font-bold dark:text-white">
               GET OUR UPDATES ALWAYS FAST
             </h2>
             <input
