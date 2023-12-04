@@ -1,4 +1,3 @@
-import PropTypes from "prop-types";
 import { useContext, useState } from "react";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 import { BsFillMoonFill, BsFillSunFill } from "react-icons/bs";
@@ -6,9 +5,11 @@ import { Link, NavLink } from "react-router-dom";
 import { toast } from "react-toastify";
 import logo from "../../assets/logo/logo.png";
 import { AuthContext } from "../../provider/AuthProvider";
+import useTheme from "../customHooks/useTheme";
 
-const Navbar = ({ theme, handleSwitchTheme }) => {
+const Navbar = () => {
   const { user, logoutUser } = useContext(AuthContext);
+  const { handleSwitchTheme, theme } = useTheme();
   const [toggleMenu, setToggleMenu] = useState(false);
 
   const handleLogout = () => {
@@ -195,11 +196,6 @@ const Navbar = ({ theme, handleSwitchTheme }) => {
       </div>
     </div>
   );
-};
-
-Navbar.propTypes = {
-  theme: PropTypes.string,
-  handleSwitchTheme: PropTypes.func,
 };
 
 export default Navbar;
